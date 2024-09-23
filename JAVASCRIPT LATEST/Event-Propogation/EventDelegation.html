@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .products{
+            display:grid;
+            grid-template-columns:100px 100px 100px;
+            grid-gap:10px;
+        }
+        span{
+            width:100px;
+            height:100px;
+            background-color:bisque;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+    </style>
+</head>
+<body>
+    <div class="products">
+        <span class="mobile">Mobile</span>
+        <span class="laptop">Laptop</span>
+        <span class="Headphone">Headphone</span>
+        <span class="speaker">Speaker</span>
+        <span class="usb Dock">USB DOCK</span>
+        <span class="tripod">Tripod</span>
+    </div>
+    <script>
+        document.querySelector(".products").addEventListener("click",(event)=>{
+            console.log(event.target.closest("SPAN"))
+            if(event.target.tagName==="SPAN"){
+                window.location.href+="/"+event.target.className;
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Propagation</title>
+</head>
+<body>
+    <h1>
+        Subscribe to Roadside Coder <br/>
+        else you will have bad dreams today.
+    </h1>
+    <div>
+        DIV
+        <form action="">
+            FORM
+        </form>
+        <button>BUTTON</button>
+    </div>
+    <script>
+           const div=document.querySelector("div");
+           const form=document.querySelector("form");
+           const button=document.querySelector("button");
+           div.addEventListener('click',function(event){
+            console.log(event.currentTarget.tagName);
+            console.log(event.target.tagName);
+            console.log(this.tagName);
+             alert("div");
+             event.stopPropagation();
+            
+           },{
+            capture:true,
+           })
+           form.addEventListener("click",function(event){
+            console.log(event.currentTarget.tagName);
+            console.log(event.target.tagName);
+            console.log(this.tagName);
+            alert("form");
+           },{
+            capture:true,
+           })
+           button.addEventListener("click",function(event){
+            console.log(event.currentTarget.tagName);
+            console.log(event.target.tagName);
+            console.log(this.tagName);
+            alert("button");
+
+           },{
+            capture:true
+           })
+    </script>
+</body>
+</html>
